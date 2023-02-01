@@ -1,0 +1,50 @@
+{
+  "name": "grindery-nexus-signer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "call": "ts-node src/local",
+    "build": "./build.sh",
+    "deploy": "./deploy.sh",
+    "server": "nodemon --exec ts-node src/server",
+    "server:dist": "cd dist && node server",
+    "start": "cd dist && node server",
+    "test": "eslint --ext js,ts src/ && tsc -p tsconfig.json --noEmit",
+    "prepare": "[ ${NODE_ENV:-development} != 'production' ] && husky install || true"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npx --yes prettier --write"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@sentry/node": "^6.17.8",
+    "axios": "^0.26.1",
+    "console-log-json": "github:SAPikachu/console-log-json",
+    "core-js": "^3.22",
+    "dotenv": "^16.0.0",
+    "ethers": "^5.7.2",
+    "ethers-gcp-kms-signer": "^1.1.6",
+    "exponential-backoff": "^3.1.0",
+    "grindery-nexus-common-utils": "^2.0.9",
+    "jose": "^4.10.0",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/lodash": "^4.14.182",
+    "@types/uuid": "^8.3.4",
+    "@types/ws": "^8.5.3",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13",
+    "husky": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.6.3"
+  }
+}
