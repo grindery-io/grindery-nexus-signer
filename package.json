@@ -21,6 +21,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@onflow/sdk": "^1.1.2",
     "@sentry/node": "^6.17.8",
     "axios": "^0.26.1",
     "console-log-json": "github:SAPikachu/console-log-json",
@@ -29,6 +30,7 @@
     "ethers": "^5.7.2",
     "ethers-gcp-kms-signer": "^1.1.6",
     "exponential-backoff": "^3.1.0",
+    "fcl-gcp-kms-authorizer": "^0.0.1-b",
     "grindery-nexus-common-utils": "^2.0.9",
     "jose": "^4.10.0",
     "lodash": "^4.17.21",
