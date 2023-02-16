@@ -59,6 +59,7 @@ jspm_packages
 .idea
 .vscode
 .env
+.env.*
 .DS_Store
 
 .git
