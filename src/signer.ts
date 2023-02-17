@@ -1,5 +1,6 @@
 import { createJsonRpcServer, forceObject } from "grindery-nexus-common-utils";
 import { ethGetAddress, ethSignTransaction, ethSignMessage, ethSignTypedData } from "./eth";
+import { ethNtaGetAddress, ethNtaSignMessage, ethNtaSignRawDataHash, ethNtaSignTypedData } from "./ethNta";
 import { flowGetPayerAddress, flowGetPublicKey, flowSignTransaction } from "./flow";
 
 export default function buildJsonRpcServer() {
@@ -9,6 +10,11 @@ export default function buildJsonRpcServer() {
     ethSignTransaction,
     ethSignMessage,
     ethSignTypedData,
+
+    ethNtaGetAddress,
+    ethNtaSignRawDataHash,
+    ethNtaSignMessage,
+    ethNtaSignTypedData,
 
     flowGetPublicKey,
     flowGetPayerAddress,

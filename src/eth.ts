@@ -1,14 +1,18 @@
 import { BigNumber, ethers } from "ethers";
 import { GcpKmsSigner } from "ethers-gcp-kms-signer";
 
-function getEthSigner() {
+export function getEthSignerWithKeyPath(keyPath: string) {
   const [, projectId, locationId, keyRingId, keyId, keyVersion] =
     /^\s*projects\/([^/]+?)\/locations\/([^/]+?)\/keyRings\/([^/]+?)\/cryptoKeys\/([^/]+?)\/cryptoKeyVersions\/([^/]+?)\s*$/.exec(
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      process.env.ETH_KEY_PATH!
+      keyPath
     ) as string[];
   const signer = new GcpKmsSigner({ projectId, locationId, keyRingId, keyId, keyVersion });
   return signer;
+}
+
+function getEthSigner() {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return getEthSignerWithKeyPath(process.env.ETH_KEY_PATH!);
 }
 
 let ETH_ADDRESS = "";
